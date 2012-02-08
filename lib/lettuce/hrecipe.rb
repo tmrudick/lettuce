@@ -2,13 +2,14 @@ require 'lettuce/hingredient'
 
 class HRecipe
 
-  attr_accessor :fn, :ingredients
+  attr_accessor :fn, :ingredients, :url
 
   def initialize(doc, url)
     @ndoc = doc
     @url = url # May be eventually used for page wrapping
     @valid = true
-    parse
+    
+    parse_required_fields
   end
   
   def is_valid?
@@ -24,8 +25,40 @@ class HRecipe
     return photo_element[0]['src']
   end
   
+  def yield
+    
+  end
+  
+  def instructions
+    
+  end
+  
+  def duration
+    
+  end
+  
+  def summary
+    
+  end
+  
+  def author
+    
+  end
+  
+  def published
+    
+  end
+  
+  def nutrition
+    
+  end
+  
+  def tag
+    
+  end
+  
   private
-  def parse
+  def parse_required_fields
     # Parse all required fields (fn, ingredients) and lazy load everything else
     
     # Parse name
@@ -48,6 +81,7 @@ class HRecipe
     @ingredients = []
     ingredients.each do |i|
       ingredient = HIngredient.new
+      
       ingredient.text = i.content
       @ingredients.push ingredient
     end
