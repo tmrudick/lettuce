@@ -1,5 +1,9 @@
 require "lettuce/version"
+require 'lettuce/hrecipe'
 
 module Lettuce
-  # Your code goes here...
+  def self.parse_url(url)
+    
+  end
 end
+
