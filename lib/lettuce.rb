@@ -4,6 +4,11 @@ require 'open-uri'
 require 'nokogiri'
 
 module Lettuce
+  
+  def self.parse(url)
+    nil
+  end
+  
   def self.parse_url(url)    
     begin
       doc = Nokogiri::HTML(open(url))
