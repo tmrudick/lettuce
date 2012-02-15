@@ -6,7 +6,23 @@ require 'nokogiri'
 module Lettuce
   
   def self.parse(url)
-    nil
+    begin
+      doc = get_document url
+    rescue
+      return nil
+    end
+    
+    if Lettuce::HRecipe.can_parse?(doc, url)
+      Lettuce::HRecipe.new(doc, url)
+    end
+  end
+  
+  def self.get_document(url)
+    html = ''
+    open url do |http|
+      html = http.read
+    end
+    Nokogiri::HTML(html)
   end
   
   def self.parse_url(url)    
