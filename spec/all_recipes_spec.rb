@@ -22,4 +22,9 @@ describe Lettuce::AllRecipes do
     recipe = Lettuce::AllRecipes.new(@document, @url)
     recipe.ingredients.size.should == 15    
   end
+  
+  it 'should have a valid photo url' do
+    recipe = Lettuce::AllRecipes.new(@document, @url)
+    recipe.photo.should == "http://images.media-allrecipes.com/site/allrecipes/area/community/userphoto/small/789751.jpg"
+  end
 end

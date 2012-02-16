@@ -22,4 +22,9 @@ describe Lettuce::HRecipe do
     recipe = Lettuce::HRecipe.new(@document, @url)
     recipe.ingredients.size.should == 5    
   end
+  
+  it 'should have a valid photo url' do
+    recipe = Lettuce::HRecipe.new(@document, @url)
+    recipe.photo.should == "http://img.foodnetwork.com/FOOD/2009/01/13/vday_roastedasparagus4854_s4x3_med.jpg"
+  end
 end
