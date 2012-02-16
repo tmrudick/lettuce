@@ -1,9 +1,15 @@
 require "lettuce/version"
-require 'lettuce/hrecipe'
+require 'lettuce/hrecipe/hrecipe'
+require 'lettuce/hrecipe/all_recipes'
 require 'open-uri'
 require 'nokogiri'
 
 module Lettuce
+  
+  def self.parsers
+    { :all_recipes => Lettuce::AllRecipes, 
+      :hrecipe_generic => Lettuce::HRecipe }
+  end
   
   def self.parse(url)
     begin
@@ -12,9 +18,15 @@ module Lettuce
       return nil
     end
     
-    if Lettuce::HRecipe.can_parse?(doc, url)
-      Lettuce::HRecipe.new(doc, url)
+    recipe = nil
+    for parser in parsers.values
+      if parser.can_parse?(doc, url)
+        recipe = parser.new(doc, url)
+        break
+      end
     end
+    
+    recipe
   end
   
   def self.get_document(url)
