@@ -22,5 +22,17 @@ module Lettuce
       @root.css('.fn')[0].content.strip
     end
     
+    def ingredients
+      ingredients_list = []
+      @root.css('.ingredient').each do |ingredient|
+        ingredients_list << ingredient.content.strip
+      end
+      
+      ingredients_list
+    end
+    
+    def photo
+      @root.css('.photo')[0]['src']
+    end
   end
 end
