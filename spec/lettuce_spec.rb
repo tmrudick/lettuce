@@ -10,6 +10,8 @@ describe Lettuce do
           case self.to_s
           when "http://www.foodnetwork.com/recipes/tyler-florence/roasted-asparagus-recipe/index.html"
             url = File.join(File.dirname(__FILE__), "fixtures/asparagus.html")
+          when "http://allrecipes.com/Recipe/Pineapple-Sweet-Rolls/Detail.aspx"
+            url = File.join(File.dirname(__FILE__), "fixtures/pineapple_rolls.html")
           else
             url = File.join(File.dirname(__FILE__), "fixtures/default.html")
           end
@@ -32,5 +34,11 @@ describe Lettuce do
     recipe = Lettuce.parse("http://www.foodnetwork.com/recipes/tyler-florence/roasted-asparagus-recipe/index.html")
 
     recipe.title.should == "Roasted Asparagus"
+  end
+  
+  it 'should return a recipe object called Pineapple Sweet Rolls' do
+    recipe = Lettuce.parse("http://allrecipes.com/Recipe/Pineapple-Sweet-Rolls/Detail.aspx")
+    
+    recipe.title.should == "Pineapple Sweet Rolls"
   end
 end
