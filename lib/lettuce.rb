@@ -36,22 +36,5 @@ module Lettuce
     end
     Nokogiri::HTML(html)
   end
-  
-  def self.parse_url(url)    
-    begin
-      doc = Nokogiri::HTML(open(url))
-    rescue
-      return []
-    end
-    
-    results = []
-    
-    doc.css('.hrecipe').each do |hrecipe|
-      recipe = HRecipe.new(hrecipe, url)
-      results.push(recipe) if recipe.is_valid?
-    end
-    
-    return results
-  end
 end
 
