@@ -5,17 +5,25 @@ module Lettuce
       def can_parse?(doc, url)
         doc.css('.hrecipe').size > 0
       end
+      
+      def get_root(doc)
+        doc.css('.hrecipe')
+      end
+      
+      def parse(doc, url)
+        root = get_root(doc)
+        if root.size > 0
+          self.new(root[0])
+        else 
+          nil
+        end
+      end
     end
     
-    attr_reader :url
+    attr_reader :url, :title, :ingredients
     
-    def initialize(doc, url)
-      @root = get_recipe_root(doc)
-      @url = url
-    end
-    
-    def get_recipe_root(doc)
-      doc.css('.hrecipe')
+    def initialize(root)
+      @root = root
     end
     
     def title

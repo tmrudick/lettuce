@@ -13,18 +13,18 @@ describe Lettuce::HRecipe do
   end
 
   it 'should be called Roasted Asparagus' do
-    recipe = Lettuce::HRecipe.new(@document, @url)
+    recipe = Lettuce::HRecipe.new(@document)
     
     recipe.title.should == "Roasted Asparagus"
   end
 
   it 'should return only 6 ingredients' do
-    recipe = Lettuce::HRecipe.new(@document, @url)
+    recipe = Lettuce::HRecipe.new(@document)
     recipe.ingredients.size.should == 5    
   end
   
   it 'should have a valid photo url' do
-    recipe = Lettuce::HRecipe.new(@document, @url)
+    recipe = Lettuce::HRecipe.new(@document)
     recipe.photo.should == "http://img.foodnetwork.com/FOOD/2009/01/13/vday_roastedasparagus4854_s4x3_med.jpg"
   end
 end

@@ -14,19 +14,20 @@ module Lettuce
   def self.parse(url)
     begin
       doc = get_document url
-    rescue
-      return nil
-    end
     
-    recipe = nil
-    for parser in parsers.values
-      if parser.can_parse?(doc, url)
-        recipe = parser.new(doc, url)
-        break
-      end
-    end
+      recipe = nil
+      for parser in parsers.values
+        if parser.can_parse?(doc, url)
+          recipe = parser.parse(doc, url)
+          break
+        end
+       end
     
     recipe
+    
+    rescue
+      nil
+    end
   end
   
   def self.get_document(url)
