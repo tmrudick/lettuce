@@ -12,7 +12,7 @@ module Lettuce
       def parse(doc, url)
         root = get_root(doc)
         if root.size > 0
-          self.new(root[0])
+          self.new(root[0], url)
         else 
           nil
         end
@@ -20,14 +20,15 @@ module Lettuce
       
       def parse_all(doc, url)
         root = get_root(doc)
-        root.collect { |node| self.new(node) }
+        root.collect { |node| self.new(node, url) }
       end     
     end
     
-    attr_reader :url, :title, :ingredients
+    attr_reader :url
     
-    def initialize(root)
+    def initialize(root, url)
       @root = root
+      @url = url
     end
     
     def title

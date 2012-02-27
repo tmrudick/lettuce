@@ -13,18 +13,18 @@ describe Lettuce::AllRecipes do
   end
 
   it 'should be called Pineapple Sweet Rolls' do
-    recipe = Lettuce::AllRecipes.new(@document)
+    recipe = Lettuce::AllRecipes.new(@document, @url)
     
     recipe.title.should == "Pineapple Sweet Rolls"
   end
 
   it 'should return 15 ingredients' do
-    recipe = Lettuce::AllRecipes.new(@document)
+    recipe = Lettuce::AllRecipes.new(@document, @url)
     recipe.ingredients.size.should == 15    
   end
   
   it 'should have a valid photo url' do
-    recipe = Lettuce::AllRecipes.new(@document)
+    recipe = Lettuce::AllRecipes.new(@document, @url)
     recipe.photo.should == "http://images.media-allrecipes.com/site/allrecipes/area/community/userphoto/small/789751.jpg"
   end
 end
