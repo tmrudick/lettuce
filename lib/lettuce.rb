@@ -3,6 +3,7 @@ require 'lettuce/hrecipe/hrecipe'
 require 'lettuce/hrecipe/all_recipes'
 require 'open-uri'
 require 'nokogiri'
+require 'lettuce/recipe'
 
 module Lettuce
   
