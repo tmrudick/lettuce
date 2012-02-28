@@ -9,22 +9,22 @@ describe Lettuce::HRecipe do
   end
 
   it 'should be able to parse this recipe' do
-    Lettuce::HRecipe.can_parse?(@document, @url)
+    Lettuce::Recipe.can_parse?(@document, @url)
   end
 
   it 'should be called Roasted Asparagus' do
-    recipe = Lettuce::HRecipe.new(@document, @url)
+    recipe = Lettuce::Recipe.new(@document, @url)
     
     recipe.title.should == "Roasted Asparagus"
   end
 
   it 'should return only 6 ingredients' do
-    recipe = Lettuce::HRecipe.new(@document, @url)
+    recipe = Lettuce::Recipe.new(@document, @url)
     recipe.ingredients.size.should == 5    
   end
   
   it 'should have a valid photo url' do
-    recipe = Lettuce::HRecipe.new(@document, @url)
+    recipe = Lettuce::Recipe.new(@document, @url)
     recipe.photo.should == "http://img.foodnetwork.com/FOOD/2009/01/13/vday_roastedasparagus4854_s4x3_med.jpg"
   end
 end

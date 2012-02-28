@@ -1,15 +1,15 @@
 require "lettuce/version"
 require 'lettuce/hrecipe/hrecipe'
+require 'lettuce/recipe'
 require 'lettuce/hrecipe/all_recipes'
 require 'open-uri'
 require 'nokogiri'
-require 'lettuce/recipe'
 
 module Lettuce
   
   def self.parsers
     { :all_recipes => Lettuce::AllRecipes, 
-      :hrecipe_generic => Lettuce::HRecipe }
+      :hrecipe_generic => Lettuce::Recipe }
   end
   
   def self.parse(url)
