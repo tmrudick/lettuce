@@ -1,6 +1,6 @@
 require 'lettuce'
 
-describe Lettuce::HRecipe do
+describe Lettuce::Recipe do
   before(:all) do
    @file = open(File.join(File.dirname(__FILE__), "fixtures/asparagus.html"))
    @document = Nokogiri::HTML(@file)

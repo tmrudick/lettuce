@@ -1,5 +1,3 @@
-require 'nokogiri'
-
 module Lettuce
   class Recipe    
     class << self

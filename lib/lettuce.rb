@@ -1,7 +1,6 @@
 require "lettuce/version"
-require 'lettuce/hrecipe/hrecipe'
 require 'lettuce/recipe'
-require 'lettuce/hrecipe/all_recipes'
+require 'lettuce/all_recipes'
 require 'open-uri'
 require 'nokogiri'
 
