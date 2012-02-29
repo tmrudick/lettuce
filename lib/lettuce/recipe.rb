@@ -57,7 +57,7 @@ module Lettuce
     end
     
     def summary(selector = '.summary')
-      @root.css(selector).content.strip
+      @root.css(selector)[0].content.strip
     end
     
     def author(selector = '.author')
@@ -65,7 +65,7 @@ module Lettuce
     end
     
     def published(selector = '.published)')
-      @root.css(selector)      
+      @root.css(selector)[0].content.strip     
     end
     
     def nutrition(selector = '.nutrition')
